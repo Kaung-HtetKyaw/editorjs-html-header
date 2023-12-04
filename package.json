@@ -1,15 +1,15 @@
 {
-  "name": "@editorjs/header",
-  "version": "2.8.1",
+  "name": "@pawritharya/editorjs-html-header",
+  "version": "1.0.0",
   "keywords": [
     "codex editor",
     "header",
     "editor.js",
     "editorjs"
   ],
-  "description": "Header Tool for Editor.js",
+  "description": "HTML Header Tool for Editor.js",
   "license": "MIT",
-  "repository": "https://github.com/editor-js/header",
+  "repository": "https://github.com/Kaung-HtetKyaw/editorjs-html-header",
   "files": [
     "dist"
   ],
@@ -26,8 +26,8 @@
     "build": "vite build"
   },
   "author": {
-    "name": "CodeX",
-    "email": "team@codex.so"
+    "name": "Kaung Htet Kyaw",
+    "email": "speed02749@gmail.com"
   },
   "devDependencies": {
     "vite": "^4.5.0",
