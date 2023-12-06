@@ -26,6 +26,7 @@ import {
  * @property {string} placeholder — Block's placeholder
  * @property {number[]} levels — Heading levels
  * @property {number} defaultLevel — default level
+ * @property {function} onChangeLevel — callback when header level is changed
  */
 
 /**
@@ -68,6 +69,8 @@ export default class Header {
      */
     this._settings = config;
 
+    this._settings.onChangeLevel(this.setLevel.bind(this));
+
     /**
      * Block's data
      *
@@ -83,6 +86,10 @@ export default class Header {
      * @private
      */
     this._element = this.getTag();
+  }
+
+  static get enableLineBreaks() {
+    return true;
   }
 
   /**
@@ -101,7 +108,10 @@ export default class Header {
     }
 
     newData.text = data.text || '';
-    newData.level = parseInt(data.level) || this.defaultLevel.number;
+    newData.level =
+      data.level === 'span'
+        ? data.level
+        : parseInt(data.level) || this.defaultLevel.number;
 
     return newData;
   }
@@ -141,6 +151,7 @@ export default class Header {
       level: level,
       text: this.data.text,
     };
+    this.save(this._element);
   }
 
   /**
@@ -403,6 +414,10 @@ export default class Header {
         number: 6,
         tag: 'H6',
         svg: IconH6,
+      },
+      {
+        number: 'span',
+        tag: 'span',
       },
     ];
 
